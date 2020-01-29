@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FormCarousel from './FormCarousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy, faEnvelope, faPenAlt } from '@fortawesome/free-solid-svg-icons';
+import Bio from './Bio';
+import Details from './Details';
+import Submit from './Submit';
+import { Wrapper } from './styles';
 
 const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <div>
+        <h1>Form Carousel Demo</h1>
+        <h4>
+          Fill out your details below to complete the form.
+        </h4>
+
+        <FormCarousel
+          stages={[
+            {
+              form: Details,
+              icon: <FontAwesomeIcon icon={faCopy} />,
+              label: "Your Details"
+            },
+            {
+              form: Bio,
+              icon: <FontAwesomeIcon icon={faPenAlt} />,
+              label: "Bio"
+            },
+            {
+              form: Submit,
+              icon: <FontAwesomeIcon icon={faEnvelope} />,
+              label: "Submit"
+            }
+          ]}
+        />
+      </div>
+    </Wrapper>
   );
 }
 
